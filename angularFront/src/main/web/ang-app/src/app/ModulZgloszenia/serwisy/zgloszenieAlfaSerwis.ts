@@ -3,8 +3,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ZgloszenieAlfa} from "./interfejsy/zgloszenie-alfa";
 
-//todo przerobic ten interfejs na taki ktory przyjmuje wszystkie typu zgloszen i wysyla do backendu
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class ZgloszenieAlfaSerwis {
 
   private static readonly POST_ZGLOSZENIE_URL = '/api/zgloszenie/zapisz';

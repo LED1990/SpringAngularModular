@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {ZgloszenieAlfa} from "../serwisy/zgloszenia/interfejsy/zgloszenie-alfa";
-import {ZgloszenieAlfaSerwis} from "../serwisy/zgloszenia/zgloszenieAlfaSerwis";
-import {Choroba} from "../serwisy/zgloszenia/interfejsy/Wspolne/choroba";
-import {Pacjent} from "../serwisy/zgloszenia/interfejsy/Wspolne/pacjent";
+import {Component, OnInit} from '@angular/core';
+import {ZgloszenieAlfa} from "../../serwisy/interfejsy/zgloszenie-alfa";
+import {ZgloszenieAlfaSerwis} from "../../serwisy/zgloszenieAlfaSerwis";
+import {Choroba} from "../../serwisy/interfejsy/Wspolne/choroba";
+import {Pacjent} from "../../serwisy/interfejsy/Wspolne/pacjent";
 
 @Component({
   selector: 'app-zgloszenie-alfa',

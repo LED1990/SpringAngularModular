@@ -1,4 +1,4 @@
-import {TypZgloszenia} from "../../Enumy/typ-zgloszenia.enum";
+import {TypZgloszenia} from "../Enumy/typ-zgloszenia.enum";
 import {Pacjent} from "./Wspolne/pacjent";
 import {Choroba} from "./Wspolne/choroba";
 
