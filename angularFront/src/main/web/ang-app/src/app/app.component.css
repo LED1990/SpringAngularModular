@@ -1,0 +1,11 @@
+.glownyKontener{
+  width: 80%;
+  background-color: lightgrey;
+  margin: 0 auto;
+}
+
+.przyciskimenu{
+  height: 200px;
+  width: 200px;
+  font-size: xx-large;
+}
