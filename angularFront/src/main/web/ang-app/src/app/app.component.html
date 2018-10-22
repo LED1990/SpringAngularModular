@@ -1,14 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   <h1>
-    {{ title }}!  V1.6!!!
+    {{ title }}!  V1.3!!!
   </h1>
 
 </div>
 <div class="glownyKontener">
-  <div id="przyciskiMenu">
-    <button class="btn btn-default">Zgłoszenia</button>
-    <button class="btn btn-default">Administracja</button>
+  <nav id="przyciskiMenu">
+    <a routerLink="/zgloszenieAlfa">Zgłoszenia</a>
+    <!--<a [routerLink]="[{outlets:{adm:['administracja']}}]">Administracja</a> przyklad na wiecej niż jeden outlet-->
+    <a routerLink="administracja">Administracja</a>
+  </nav>
+  <router-outlet></router-outlet>
+  <div>
+    <router-outlet name="adm"></router-outlet>
   </div>
-  <app-zgloszenie-alfa></app-zgloszenie-alfa>
 </div>

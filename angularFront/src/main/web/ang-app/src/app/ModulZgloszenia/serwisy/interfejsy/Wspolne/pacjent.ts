@@ -1,7 +1,8 @@
+import {DaneOsobowe} from "./dane-osobowe";
+
 export interface Pacjent {
   id: number;
-  imie: string;
-  nazwisko: string;
+  daneOsobowe: DaneOsobowe;
   wiek: number;
   dataUrodzenia: Date;
 }

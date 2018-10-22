@@ -5,16 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
 @Component
-public class Pacjent {
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class DaneOsobowe {
     private Long id;
-    private DaneOsobowe daneOsobowe;
-    private Integer wiek;
-    private Date dataUrodzenia;
+    private String imie;
+    private String nazwisko;
 }
