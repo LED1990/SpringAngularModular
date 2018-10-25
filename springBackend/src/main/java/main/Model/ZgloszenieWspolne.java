@@ -1,27 +1,29 @@
-package main.Model.Abstract;
+package main.Model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import main.Model.Choroba;
 import main.Model.Enums.TypZgloszenia;
-import main.Model.Pacjent;
-import org.springframework.beans.factory.annotation.Autowired;
+import main.Model.alfa.ZgloszenieAlfa;
 import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 
 @Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public abstract class ZgloszenieWspolne {
+@Entity
+@Table(name = "zgloszeniewspolne")
+public class ZgloszenieWspolne {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column
     private String numerZgloszenia;
+//    @Column
+    @Transient
     private TypZgloszenia typZgloszenia;
-
-    @Autowired
-    private Pacjent pacjent;
-    @Autowired
-    private Choroba choroba;
 
 }
