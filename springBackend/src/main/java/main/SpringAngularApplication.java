@@ -19,15 +19,14 @@ public class SpringAngularApplication implements CommandLineRunner {
         SpringApplication.run(SpringAngularApplication.class, args);
     }
 
+    /**
+     * @Transactional pozwala utworzenie sessji do polaczneia zbaza danych
+     * @param arg0
+     * @throws Exception
+     */
     @Override
     @Transactional
     public void run(String... arg0) throws Exception {
-//        ZgloszenieAlfa zgloszenieAlfa = new ZgloszenieAlfa();
-//        zgloszenieAlfa.setCiaza(false);
-//        ZgloszenieWspolne wspolne = new ZgloszenieWspolne();
-//        wspolne.setNumerZgloszenia("AA1");
-//        zgloszenieAlfa.setZgloszenieWspolne(wspolne);
-//        zgloszenieAlfaDao.zapiszNoweZgloszenie(zgloszenieAlfa);
 
         ZgloszenieAlfa zgloszenieAlfa = zgloszenieAlfaDao.pobierzPoId(8L);
         System.out.println("tak sobie "+zgloszenieAlfa.getCiaza()+" "+zgloszenieAlfa.getZgloszenieWspolne().getNumerZgloszenia());
