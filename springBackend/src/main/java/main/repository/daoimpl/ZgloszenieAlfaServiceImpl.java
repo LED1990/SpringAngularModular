@@ -18,13 +18,13 @@ public class ZgloszenieAlfaServiceImpl implements ZgloszenieAlfaService{
 
     @Override
     public void zapiszNoweZgloszenie(ZgloszenieAlfa zgloszenieAlfa){
-        logger.debug("=================== zapisywanie nowego zgłoszenia");
+        logger.debug("zapisywanie nowego zgłoszenia");
         zgloszenieAlfaRepository.save(zgloszenieAlfa);
     }
 
     @Override
     public ZgloszenieAlfa pobierzPoId(Long id){
-        logger.debug("======================== pobieranie zgłoszenia po ID = " + id);
+        logger.debug("pobieranie zgłoszenia po ID = " + id);
         return zgloszenieAlfaRepository.findOne(id);
     }
 }
