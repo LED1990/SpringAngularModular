@@ -26,13 +26,13 @@ public class ZgloszenieAlfa {
     private Long id;
 
     @Autowired
-//    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "zgloszenieAlfa")
-    @Transient
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "pacjent_id")
     private Pacjent pacjent;
 
     @Autowired
-//    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "zgloszenieAlfa")
-    @Transient
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "choroba_id")
     private List<Choroba> choroba;
 
     /**

@@ -14,18 +14,21 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "choroba")
 public class Choroba {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
     @Column
     private String nazwa;
-    @Column
+
+    @Column(name = "datawystapienia")
     private Date dataWystapienia;
 
-    //foreignkeys
-    @JoinColumn(name = "alfa_id")
-    @OneToOne(fetch = FetchType.LAZY)
-    private ZgloszenieAlfa zgloszenieAlfa;
+    @ManyToOne
+    @JoinColumn(name = "choroba_id")
+    ZgloszenieAlfa zgloszenieAlfa;
+
 }

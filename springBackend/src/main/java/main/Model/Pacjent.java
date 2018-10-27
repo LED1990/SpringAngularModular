@@ -19,20 +19,17 @@ import java.util.Date;
 public class Pacjent {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Autowired
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(name = "dane_osobowe_id")
     private DaneOsobowe daneOsobowe;
 
     @Column
     private Integer wiek;
-    @Column
-    private Date dataUrodzenia;
 
-    //foreign keys
-    @JoinColumn(name = "alfa_id")
-    @OneToOne(fetch = FetchType.LAZY)
-    private ZgloszenieAlfa zgloszenieAlfa;
+    @Column(name = "dataurodzenia")
+    private Date dataUrodzenia;
 }
