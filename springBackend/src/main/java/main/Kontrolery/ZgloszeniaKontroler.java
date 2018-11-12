@@ -13,7 +13,7 @@ public class ZgloszeniaKontroler {
 
     @PostMapping(value = ZGLOSZENIE_ALFA_URL)
     public ResponseEntity<ZgloszenieAlfa> zapiszZgloszenie(@RequestBody ZgloszenieAlfa zgloszenieAlfa) {
-        System.out.println(zgloszenieAlfa.toString() + " " + zgloszenieAlfa.getPacjent().toString() + " " + zgloszenieAlfa.getChoroba().toString());
+//        System.out.println(zgloszenieAlfa.toString() + " " + zgloszenieAlfa.getPacjent().toString() + " " + zgloszenieAlfa.getChoroba().toString());
         //todo obsluga zapisywania zgloszenia
         return ResponseEntity.ok(zgloszenieAlfa);
     }

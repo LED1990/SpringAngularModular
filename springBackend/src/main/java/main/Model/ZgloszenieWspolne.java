@@ -3,32 +3,28 @@ package main.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import main.Model.alfa.ZgloszenieAlfa;
+import main.Model.Enums.TypZgloszenia;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Component
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "choroba")
-public class Choroba {
+@Table(name = "zgloszeniewspolne")
+public class ZgloszenieWspolne {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
-    private String nazwa;
+    private String numerZgloszenia;
 
-    @Column(name = "datawystapienia")
-    private Date dataWystapienia;
-
-    @ManyToOne
-    @JoinColumn(name = "choroba_id")
-    ZgloszenieAlfa zgloszenieAlfa;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "typzgloszenia")
+    private TypZgloszenia typZgloszenia;
 
 }

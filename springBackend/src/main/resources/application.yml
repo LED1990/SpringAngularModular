@@ -1,2 +1,14 @@
 server:
   port: 9080
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/angularspringdb
+    username: springangular
+    password: springangular
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+
