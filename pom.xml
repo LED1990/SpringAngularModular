@@ -18,6 +18,4 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>10</java.version>
     </properties>
-
-
 </project>
