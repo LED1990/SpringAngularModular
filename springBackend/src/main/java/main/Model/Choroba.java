@@ -1,5 +1,6 @@
 package main.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,7 @@ public class Choroba {
     @Column(name = "datawystapienia")
     private Date dataWystapienia;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "choroba_id")
     ZgloszenieAlfa zgloszenieAlfa;

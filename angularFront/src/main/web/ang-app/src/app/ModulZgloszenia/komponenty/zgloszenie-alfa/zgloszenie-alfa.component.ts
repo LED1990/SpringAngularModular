@@ -12,23 +12,27 @@ import {DaneOsobowe} from "../../serwisy/interfejsy/Wspolne/dane-osobowe";
 })
 export class ZgloszenieAlfaComponent implements OnInit {
 
-  zgloszenieAlfa = {pacjent: {daneOsobowe: {} as DaneOsobowe} as Pacjent, choroba: {} as Choroba} as ZgloszenieAlfa;
+  zgloszenieAlfa = {
+    pacjent: {daneOsobowe: {} as DaneOsobowe} as Pacjent,
+    choroba: [{}as Choroba]
+  } as ZgloszenieAlfa;
 
-  constructor(private zgloszenieAlfaSerwis: ZgloszenieAlfaSerwis) { }
+  constructor(private zgloszenieAlfaSerwis: ZgloszenieAlfaSerwis) {
+  }
 
   ngOnInit() {
   }
 
-  zapisZgloszenieAlfa(){
+  zapisZgloszenieAlfa() {
     this.zgloszenieAlfaSerwis.zapiszZgloszenieAlfa(this.zgloszenieAlfa).subscribe(
       value => {
         console.log('[POST] udało sie zapisać nowe zgłoszenie', value);
       }, error1 => {
-        console.log('[POST] NIE!!! udało zapisać nowego zgłoszenia');
+        console.log('[POST] NIE!!! udało zapisać nowego zgłoszenia' + this.zgloszenieAlfa);
       },
       () => {
         console.log('[POST] KONIEC');
-      }
+      },
     );
   }
 

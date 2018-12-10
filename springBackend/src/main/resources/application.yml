@@ -13,3 +13,5 @@ spring:
 liquibase:
   change-log: classpath:/db/changelog/changelog-master.xml
   enabled: false
+
+#  port jenkins!! 8099

@@ -5,39 +5,38 @@
     <div class="form-group">
       <label for="name">Imię pacjenta</label> <input type="text"
                                                      class="form-control" id="name" placeholder="wprowadz imię"
-                                                     [(ngModel)]="zgloszenieAlfa.pacjent.daneOsobowe.imie" name="name" required>
+                                                     (input)="zgloszenieAlfa.pacjent.daneOsobowe.imie = $event.target.value" name="name">
     </div>
     <div class="form-group">
       <label for="age">Wiek pacjenta</label> <input type="number"
                                                     class="form-control" id="age" placeholder="wprowadź wiek"
-                                                    [(ngModel)]="zgloszenieAlfa.pacjent.wiek" name="age" required>
+                                                    (input)="zgloszenieAlfa.pacjent.wiek = $event.target.value" name="age">
     </div>
     <div class="form-group">
       <label for="name">Nazwisko pacjenta</label> <input type="text"
                                                          class="form-control" id="surname" placeholder="wprowadz imie"
-                                                         [(ngModel)]="zgloszenieAlfa.pacjent.daneOsobowe.nazwisko" name="surname"
-                                                         required>
+                                                         (input)="zgloszenieAlfa.pacjent.daneOsobowe.nazwisko = $event.target.value" name="surname">
     </div>
 
     <div class="form-group">
       <label for="birth">Data urodzenia</label> <input type="date"
                                                        class="form-control" id="birth"
                                                        placeholder="wprowadź datę urodzenia"
-                                                       [(ngModel)]="zgloszenieAlfa.pacjent.dataUrodzenia" name="birth"
-                                                       required>
+                                                       (input)="zgloszenieAlfa.pacjent.dataUrodzenia = $event.target.value" name="birth">
     </div>
 
     <div class="form-group">
       <label for="sicknes">Choroba</label> <input type="text"
                                                   class="form-control" id="sicknes" placeholder="nazwa choroby"
-                                                  [(ngModel)]="zgloszenieAlfa.choroba.nazwa" name="sicknes" required>
+                                                  (input)="zgloszenieAlfa.choroba[0].nazwa = $event.target.value"
+                                                  name="sicknes">
     </div>
     <div class="form-group">
       <label for="dateSick">Data wystąpienia choroby</label> <input type="date"
-                                                          class="form-control" id="dateSick"
-                                                          placeholder="wprowadź datę wystąpienia choroby"
-                                                          [(ngModel)]="zgloszenieAlfa.choroba.dataWystapienia"
-                                                          name="dateSick" required>
+                                                                    class="form-control" id="dateSick"
+                                                                    placeholder="wprowadź datę wystąpienia choroby"
+                                                                    (input)="zgloszenieAlfa.choroba[0].dataWystapienia = $event.target.value"
+                                                                    name="dateSick">
     </div>
     <button type="submit" class="btn btn-default">Zapisz zgłoszenie</button>
   </form>

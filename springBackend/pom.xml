@@ -153,7 +153,8 @@
         <profile>
             <id>develop</id>
             <properties>
-                <dbUrl>jdbc:mysql://localhost:3306/angularspringdb</dbUrl>
+                <!--baza na dockerze na vmware (linux)-->
+                <dbUrl>jdbc:mysql://192.168.137.130:3306/angularspringdb</dbUrl>
                 <dbUser>springangular</dbUser>
                 <dbPassword>springangular</dbPassword>
             </properties>
@@ -161,7 +162,8 @@
         <profile>
             <id>liquibase</id>
             <properties>
-                <dbUrl>jdbc:mysql://localhost:3306/angularspringdb</dbUrl>
+                <!--baza na dockerze na vmware (linux)-->
+                <dbUrl>jdbc:mysql://192.168.137.130:3306/angularspringdb</dbUrl>
                 <dbUser>springangular</dbUser>
                 <dbPassword>springangular</dbPassword>
             </properties>

@@ -9,5 +9,5 @@ export interface ZgloszenieAlfa {
   numerZgloszenia: string;
   typZgloszenia: TypZgloszenia;
   pacjent: Pacjent;
-  choroba: Choroba;
+  choroba: Choroba[];
 }
