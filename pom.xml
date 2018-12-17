@@ -9,8 +9,8 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>springBackend</module>
         <module>angularFront</module>
+        <module>springBackend</module>
     </modules>
 
     <properties>
@@ -18,6 +18,4 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>10</java.version>
     </properties>
-
-
 </project>

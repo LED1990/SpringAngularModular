@@ -1,0 +1,15 @@
+<p>
+  LISTA ZGŁOSZEŃ
+</p>
+
+<div id="listaZgloszen">
+  <ul>
+    <li *ngFor="let zgloszenie of listaZgloszen">
+      <a routerLink="{{zgloszenie.mapowanie}}">{{zgloszenie.nazwa}}</a>
+    </li>
+  </ul>
+
+  <!--<button *ngFor="let heto of listaZgloszen">{{heto.nazwa}}</button>-->
+  <router-outlet></router-outlet>
+</div>
+

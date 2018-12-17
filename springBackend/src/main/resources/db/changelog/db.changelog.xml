@@ -1,0 +1,143 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="Autor" id="1544204173868-1">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="choroba"/>
+            </not>
+        </preConditions>
+        <createTable tableName="choroba">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="nazwa" type="VARCHAR(255)"/>
+            <column name="datawystapienia" type="date"/>
+            <column name="choroba_id" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-2">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="daneosobowe"/>
+            </not>
+        </preConditions>
+        <createTable tableName="daneosobowe">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="imie" type="VARCHAR(255)"/>
+            <column name="nazwisko" type="VARCHAR(256)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-3">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="pacjent"/>
+            </not>
+        </preConditions>
+        <createTable tableName="pacjent">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="wiek" type="INT"/>
+            <column name="dataurodzenia" type="date"/>
+            <column name="dane_osobowe_id" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-4">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="zgloszeniealfa"/>
+            </not>
+        </preConditions>
+        <createTable tableName="zgloszeniealfa">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="izolacja" type="TINYINT(3)"/>
+            <column name="ciaza" type="TINYINT(3)"/>
+            <column name="wspolne_id" type="INT"/>
+            <column name="pacjent_id" type="INT"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-5">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="zgloszeniewspolne"/>
+            </not>
+        </preConditions>
+        <createTable tableName="zgloszeniewspolne">
+            <column autoIncrement="true" name="id" type="INT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="numer_zgloszenia" type="VARCHAR(45)"/>
+            <column name="typzgloszenia" type="ENUM('ALFA', 'BETA')"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-6">
+        <addUniqueConstraint columnNames="id" constraintName="id_UNIQUE" tableName="zgloszeniealfa"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-7">
+        <addUniqueConstraint columnNames="id" constraintName="idchoroba_UNIQUE" tableName="choroba"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-8">
+        <addUniqueConstraint columnNames="id" constraintName="iddaneosobowe_UNIQUE" tableName="daneosobowe"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-9">
+        <addUniqueConstraint columnNames="id" constraintName="idpacjent_UNIQUE" tableName="pacjent"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-10">
+        <addUniqueConstraint columnNames="id" constraintName="idzgloszeniewspolne_UNIQUE"
+                             tableName="zgloszeniewspolne"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-11">
+        <createIndex indexName="pacjent_daneosobowe_id_fk" tableName="pacjent">
+            <column name="dane_osobowe_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-12">
+        <createIndex indexName="zgloszeniealfa_pacjent_id_fk" tableName="zgloszeniealfa">
+            <column name="pacjent_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-13">
+        <createIndex indexName="zgloszeniealfa_zgloszeniewspolne_id_fk" tableName="zgloszeniealfa">
+            <column name="wspolne_id"/>
+        </createIndex>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-14">
+        <addForeignKeyConstraint baseColumnNames="dane_osobowe_id" baseTableName="pacjent"
+                                 constraintName="pacjent_daneosobowe_id_fk" deferrable="false" initiallyDeferred="false"
+                                 onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
+                                 referencedTableName="daneosobowe"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-15">
+        <addForeignKeyConstraint baseColumnNames="pacjent_id" baseTableName="zgloszeniealfa"
+                                 constraintName="zgloszeniealfa_pacjent_id_fk" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="pacjent"/>
+    </changeSet>
+
+    <changeSet author="Autor" id="1544204173868-16">
+        <addForeignKeyConstraint baseColumnNames="wspolne_id" baseTableName="zgloszeniealfa"
+                                 constraintName="zgloszeniealfa_zgloszeniewspolne_id_fk" deferrable="false"
+                                 initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="zgloszeniewspolne"/>
+    </changeSet>
+</databaseChangeLog>
